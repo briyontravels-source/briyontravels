@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Package</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #0b1d2a;
+      color: #fff;
+      padding: 40px;
+    }
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+    }
+    button {
+      background: #ffd166;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Book Your Package</h2>
+
+<form onsubmit="sendWhatsApp(); return false;">
+
+  <input type="text" id="package" readonly>
+
+  <input type="text" id="name" placeholder="Your Name" required>
+
+  <input type="email" id="email" placeholder="Email" required>
+
+  <input type="text" id="whatsapp" placeholder="Your WhatsApp Number" required>
+
+  <input type="date" id="date" required>
+
+  <button type="submit">Submit Booking</button>
+</form>
+
+<script>
+  // get package name from URL
+  const params = new URLSearchParams(window.location.search);
+  document.getElementById("package").value = params.get("package");
+
+  function sendWhatsApp() {
+    const pkg = document.getElementById("package").value;
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const whatsapp = document.getElementById("whatsapp").value;
+    const date = document.getElementById("date").value;
+
+    const ownerNumber = "94704998120"; // 👉 YOUR WhatsApp number (no +)
+
+    const message =
+`📢 New Booking Request
+
+📦 Package: ${pkg}
+👤 Name: ${name}
+📧 Email: ${email}
+📱 Customer WhatsApp: ${whatsapp}
+📅 Arrival Date: ${date}`;
+
+    const url = "https://wa.me/" + ownerNumber + "?text=" + encodeURIComponent(message);
+
+    window.open(url, "_blank");
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Packages</title>
+  <link rel="stylesheet" href="packages.css">
+</head>
+<body>
+
+<section class="packages">
+  <h1>Our Travel Packages</h1>
+
+  <div class="package-grid">
+
+    <div class="package-card"onclick="openBooking('beach escape')">
+      <h3>Beach Escape</h3>
+      <p>3 Days / 2 Nights</p>
+      <span>$450</span>
+    </div>
+
+<script>
+function openBooking(packageName) {
+  window.open(
+    "booking.html?package=" + encodeURIComponent(packageName),
+    "_blank"
+  );
+}
+</script>
+
+    <div class="package-card"onclick="openBooking('Hill Country Tour')">
+      <h3>Hill Country Tour</h3>
+      <p>5 Days / 4 Nights</p>
+      <span>$780</span>
+    </div>
+<script>
+function openBooking(packageName) {
+  window.open(
+    "booking.html?package=" + encodeURIComponent(packageName),
+    "_blank"
+  );
+}
+</script>
+
+
+    <!-- මේ විදිහට packages 10ක් දාන්න -->
+    
+  </div>
+</section>
+
+</body>
+</html>

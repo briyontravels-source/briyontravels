@@ -1,0 +1,123 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #0d0d0d;
+    color: #ffffff;
+}
+
+/* HERO SECTION */
+.hero {
+    min-height: 100vh;
+    background:
+        linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+        url('https://tse2.mm.bing.net/th/id/OIP.sA3lWV9PZ-nVldlq69VCnQHaEK?rs=1&pid=ImgDetMain&o=7&rm=3') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 8%;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.logo span {
+    color: #f5c16c;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #cccccc;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #f5c16c;
+}
+
+.nav-btn {
+    text-decoration: none;
+    padding: 10px 22px;
+    background-color: #f5c16c;
+    color: #000;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.nav-btn:hover {
+    background-color: #e0ac55;
+}
+
+/* HERO CONTENT */
+.hero-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 8%;
+    max-width: 700px;
+}
+
+.hero-content h1 {
+    font-size: 56px;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: #dddddd;
+    margin-bottom: 35px;
+}
+
+/* BUTTONS */
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-primary {
+    padding: 14px 30px;
+    background-color: #f5c16c;
+    color: #000;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn-secondary {
+    padding: 14px 30px;
+    border: 2px solid #f5c16c;
+    color: #f5c16c;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: #f5c16c;
+    color: #000;
+}

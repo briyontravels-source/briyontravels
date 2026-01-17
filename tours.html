@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tours Gallery</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b1d2a;
+  color: #fff;
+}
+
+h1 {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  padding: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 60%;
+  border-radius: 12px;
+  animation: zoom 0.4s ease;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+
+
+
+.star-rating {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 10px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.star {
+  color: #555;
+}
+
+.star.active {
+  color: gold;
+}
+
+/* Animations */
+@keyframes zoom {
+  from {transform: scale(0.7);}
+  to {transform: scale(1);}
+}
+</style>
+</head>
+
+<body>
+
+<h1>Our Tours</h1>
+
+<div class="gallery">
+  <img src="photos/tour1.jpg" onclick="openModal(this)">
+  <img src="photos/tour2.jpg" onclick="openModal(this)">
+  <img src="photos/tour3.jpg" onclick="openModal(this)">
+</div>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+  <span class="close" onclick="closeModal()">×</span>
+  <img id="modalImg">
+
+  <div class="comments">
+    <!-- Stars -->
+    <div class="star-rating" id="stars">
+      <span class="star" onclick="setStars(1)">★</span>
+      <span class="star" onclick="setStars(2)">★</span>
+      <span class="star" onclick="setStars(3)">★</span>
+      <span class="star" onclick="setStars(4)">★</span>
+      <span class="star" onclick="setStars(5)">★</span>
+    </div>
+
+    <input type="text" id="commentInput" placeholder="Write a comment and press Enter">
+
+    <div id="commentList"></div>
+  </div>
+</div>
+
+<script>
+let currentPhoto = "";
+let currentStars = 0;
+
+function openModal(img) {
+  currentPhoto = img.src;
+  document.getElementById("modalImg").src = img.src;
+  document.getElementById("modal").style.display = "flex";
+  currentStars = 0;
+  updateStars();
+  loadComments();
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+
+function setStars(count) {
+  currentStars = count;
+  updateStars();
+}
+
+function updateStars() {
+  document.querySelectorAll(".star").forEach((star, i) => {
+    star.classList.toggle("active", i < currentStars);
+  });
+}
+
+document.getElementById("commentInput").addEventListener("keypress", function(e) {
+  if (e.key === "Enter" && this.value !== "" && currentStars > 0) {
+    saveComment(this.value, currentStars);
+    this.value = "";
+    currentStars = 0;
+    updateStars();
+  }
+});
+
+function saveComment(text, stars) {
+  let data = JSON.parse(localStorage.getItem(currentPhoto)) || [];
+  data.push({ text, stars });
+  localStorage.setItem(currentPhoto, JSON.stringify(data));
+  loadComments();
+}
+
+function loadComments() {
+  let list = document.getElementById("commentList");
+  list.innerHTML = "";
+  let data = JSON.parse(localStorage.getItem(currentPhoto)) || [];
+
+  data.forEach((item, index) => {
+    let div = document.createElement("div");
+    div.className = "comment";
+    div.innerHTML = `
+      ${"★".repeat(item.stars)}${"☆".repeat(5 - item.stars)}
+      <br>${item.text}
+      <span class="delete" onclick="deleteComment(${index})">✖</span>
+    `;
+    list.appendChild(div);
+  });
+}
+
+function deleteComment(index) {
+  let data = JSON.parse(localStorage.getItem(currentPhoto)) || [];
+  data.splice(index, 1);
+  localStorage.setItem(currentPhoto, JSON.stringify(data));
+  loadComments();
+}
+</script>
+
+
+</body>
+</html>
