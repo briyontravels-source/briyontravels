@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>10 Day Tour Package | Briyon Travels</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI", sans-serif;
+}
+body{
+  position:relative;
+  color:#333;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:url("../bg.jpg") no-repeat center center;
+  background-size:cover;
+  z-index:-1;
+  filter:brightness(0.85);
+}
+
+/* ================= HERO ================= */
+.hero{
+  min-height:45vh;              /* reduced space */
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:35px 20px 15px;
+}
+
+.hero-box{
+  background:#ffffff;
+  padding:30px 40px;            /* reduced padding */
+  border-radius:16px;
+  text-align:center;
+  animation:fadeUp 1.2s ease;
+  box-shadow:0 18px 40px rgba(0,0,0,0.15);
+}
+
+.hero-box h1{
+  font-size:42px;
+  color:#ff8c00;
+}
+
+.hero-box p{
+  margin-top:10px;
+  font-size:17px;
+  color:#444;
+}
+
+/* ================= BUTTON AREA ================= */
+.hero-nav{
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  gap:40px;
+  padding:25px 8%;
+  margin-top:px;              /* reduced space */
+  animation:fadeUp 1.5s ease;
+}
+
+.hero-nav a{
+  flex:1;
+  text-align:center;
+  padding:22px 0;
+  font-size:35px;
+  font-weight:600;
+  text-decoration:none;
+  border-radius:40px;
+  transition:0.3s;
+}
+
+.btn-back{
+  background:#4b4b4b;
+  color:#fff;
+}
+
+.btn-back:hover{
+  background:#333;
+}
+
+.btn-next{
+  background:#ff9c00;
+  color:#000;
+}
+
+.btn-next:hover{
+  background:#ff8500;
+}
+
+/* ================= MAIN CONTENT ================= */
+.main-topic{
+  padding:60px 8%;
+}
+
+/* ================= ACCORDION ================= */
+.accordion{
+  background:#fff;
+  border-radius:14px;
+  margin-bottom:35px;
+  overflow:hidden;
+  box-shadow:0 15px 40px rgba(0,0,0,0.08);
+}
+
+.accordion summary{
+  padding:26px 30px;
+  font-size:26px;
+  font-weight:600;
+  cursor:pointer;
+  background:#f7f7f7;
+  list-style:none;
+}
+
+.accordion summary::marker{
+  display:none;
+}
+
+.accordion summary span{
+  color:#999;
+  margin-right:12px;
+}
+
+.accordion[open] summary{
+  background:#fff;
+  border-bottom:1px solid #eee;
+}
+
+/* ================= SUB SECTIONS ================= */
+.sub{
+  padding:60px 8%;
+}
+
+.sub.light{
+  background:#fafafa;
+}
+
+.sub-box{
+  display:flex;
+  align-items:center;
+  gap:50px;
+  animation:fadeUp 1.2s ease;
+}
+
+.sub-box.reverse{
+  flex-direction:row-reverse;
+}
+
+.sub-box img{
+  width:50%;
+  border-radius:14px;
+  transition:0.4s;
+}
+
+.sub-box img:hover{
+  transform:scale(1.05);
+}
+
+.text h3{
+  font-size:28px;
+  margin-bottom:12px;
+}
+
+.text p, .text ul{
+  font-size:16px;
+  line-height:1.8;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(50px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+
+  .hero-box h1{
+    font-size:34px;
+  }
+
+  .hero-nav{
+    flex-direction:column;
+    gap:18px;
+    padding:20px 6%;
+  }
+
+  /*  MOBILE BUTTON SIZE INCREASE  */
+  .hero-nav a{
+    padding:22px 0;        /* taller buttons */
+    font-size:20px;        /* bigger text */
+    border-radius:50px;    /* smoother look */
+  }
+
+  .sub-box,
+  .sub-box.reverse{
+    flex-direction:column;
+  }
+
+  .sub-box img{
+    width:100%;
+  }
+
+  .accordion summary{
+    font-size:22px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-box">
+    <h1>10 Day Tour Packages</h1>
+    <p>Perfect ten Day Experience in Sri Lanka</p>
+  </div>
+</section>
+
+
+<!-- BUTTONS -->
+<div class="hero-nav">
+  <a href="../packages.html" class="btn-back">← Back</a>
+  <a href="10 day tour.html" class="btn-next">Continue →</a>
+</div>
+
+<section class="main-topic">
+
+  <!-- TOPIC 1 -->
+  <details class="accordion">
+    <summary><span>01</span><B>GALLE FORT </B><br><h5>details</h5></summary>
+
+    <div class="sub">
+      <div class="sub-box">
+        <img src="gall fort.jpg">
+        <div class="text">
+          <h3>Main Destination</h3>
+          <p>The main destination of this journey is Galle Fort, a historic coastal fortress renowned for its rich heritage, colonial architecture, and stunning ocean views.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub light">
+      <div class="sub-box reverse">
+        <img src="road.jpg">
+        <div class="text">
+          <h3>Journey Route</h3>
+          <p>The roads are well maintained, allowing you to travel comfortably in our air-conditioned vehicle.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-box">
+        <img src="safaryandkesbo.jpg">
+        <div class="text">
+          <h3>Stop Places</h3>
+          <ul>
+            <li>Sea Turtle Hatchery (Hikkaduwa / Kosgoda)</li>
+            <li>River Safari (Madu Ganga)</li>
+          </ul><p>“Throughout the tour, you are free to visit places like these based on your interests.”</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub light">
+      <div class="sub-box reverse">
+        <img src="cafee.jpg">
+        <div class="text">
+          <h3>Food & Activities</h3>
+          <ul>
+            <li>Cafe 44 / Pedlar’s Inn / Isle of Gelato</li>
+            <li>Rooftop cafes</li>
+          </ul><p>“Accompanied by our professional guide, guests may stop at selected locations like these for meals, refreshments, and relaxation breaks throughout the tour. These are provided as examples only.”</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-box">
+        <img src="hotel.jpg">
+        <div class="text">
+          <h3>Final Experience</h3>
+          <p>Guests will be safely dropped off at either our reserved hotel or their preferred hotel.</p>
+        </div>
+      </div>
+    </div>
+
+  </details>
+
+  <!-- TOPIC 2 -->
+  <details class="accordion">
+    <summary><span>01</span>Galle FORT TOUR<br><h5>details</h5></summary>
+
+    <div class="sub">
+      <div class="sub-box">
+        <img src="gall fort.jpg">
+        <div class="text">
+          <h3>Main Destination</h3>
+          <p>The main destination of this journey is Galle Fort, a historic coastal fortress renowned for its rich heritage, colonial architecture, and stunning ocean views.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub light">
+      <div class="sub-box reverse">
+        <img src="road.jpg">
+        <div class="text">
+          <h3>Journey Route</h3>
+          <p>The roads are well maintained, allowing you to travel comfortably in our air-conditioned vehicle.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-box">
+        <img src="safaryandkesbo.jpg">
+        <div class="text">
+          <h3>Stop Places</h3>
+          <ul>
+            <li>Sea Turtle Hatchery (Hikkaduwa / Kosgoda)</li>
+            <li>River Safari (Madu Ganga)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub light">
+      <div class="sub-box reverse">
+        <img src="cafee.jpg">
+        <div class="text">
+          <h3>Food & Activities</h3>
+          <ul>
+            <li>Cafe 44 / Pedlar’s Inn / Isle of Gelato</li>
+            <li>Rooftop cafes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-box">
+        <img src="hotel.jpg">
+        <div class="text">
+          <h3>Final Experience</h3>
+          <p>Guests will be safely dropped off at either our reserved hotel or their preferred hotel.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- TOPIC 3 -->
+  <details class="accordion">
+    <summary><span>01</span>Galle FORT TOUR<br><h5>details</h5></summary>
+
+    <div class="sub">
+      <div class="sub-box">
+        <img src="gall fort.jpg">
+        <div class="text">
+          <h3>Main Destination</h3>
+          <p>The main destination of this journey is Galle Fort, a historic coastal fortress renowned for its rich heritage, colonial architecture, and stunning ocean views.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub light">
+      <div class="sub-box reverse">
+        <img src="road.jpg">
+        <div class="text">
+          <h3>Journey Route</h3>
+          <p>The roads are well maintained, allowing you to travel comfortably in our air-conditioned vehicle.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-box">
+        <img src="safaryandkesbo.jpg">
+        <div class="text">
+          <h3>Stop Places</h3>
+          <ul>
+            <li>Sea Turtle Hatchery (Hikkaduwa / Kosgoda)</li>
+            <li>River Safari (Madu Ganga)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub light">
+      <div class="sub-box reverse">
+        <img src="cafee.jpg">
+        <div class="text">
+          <h3>Food & Activities</h3>
+          <ul>
+            <li>Cafe 44 / Pedlar’s Inn / Isle of Gelato</li>
+            <li>Rooftop cafes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-box">
+        <img src="hotel.jpg">
+        <div class="text">
+          <h3>Final Experience</h3>
+          <p>Guests will be safely dropped off at either our reserved hotel or their preferred hotel.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- TOPIC 4 -->
+  <details class="accordion">
+   <summary><span>01</span>Galle FORT TOUR<br><h5>details</h5></summary>
+
+    <div class="sub">
+      <div class="sub-box">
+        <img src="gall fort.jpg">
+        <div class="text">
+          <h3>Main Destination</h3>
+          <p>The main destination of this journey is Galle Fort, a historic coastal fortress renowned for its rich heritage, colonial architecture, and stunning ocean views.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub light">
+      <div class="sub-box reverse">
+        <img src="road.jpg">
+        <div class="text">
+          <h3>Journey Route</h3>
+          <p>The roads are well maintained, allowing you to travel comfortably in our air-conditioned vehicle.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-box">
+        <img src="safaryandkesbo.jpg">
+        <div class="text">
+          <h3>Stop Places</h3>
+          <ul>
+            <li>Sea Turtle Hatchery (Hikkaduwa / Kosgoda)</li>
+            <li>River Safari (Madu Ganga)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub light">
+      <div class="sub-box reverse">
+        <img src="cafee.jpg">
+        <div class="text">
+          <h3>Food & Activities</h3>
+          <ul>
+            <li>Cafe 44 / Pedlar’s Inn / Isle of Gelato</li>
+            <li>Rooftop cafes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="sub">
+      <div class="sub-box">
+        <img src="hotel.jpg">
+        <div class="text">
+          <h3>Final Experience</h3>
+          <p>Guests will be safely dropped off at either our reserved hotel or their preferred hotel.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+</section>
+
+</body>
+</html>

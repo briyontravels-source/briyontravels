@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking Package</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  font-family:Arial,sans-serif;
+  background:url("../booking.jpg") center/cover no-repeat;
+  color:#fff;
+  padding:20px;
+  margin:0;
+}
+
+.container{
+  max-width:420px;
+  margin:auto;
+  background:#4a4a4a;
+  padding:25px;
+  border-radius:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+h2{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+input,button{
+  width:100%;
+  padding:14px;
+  margin:10px 0;
+  border-radius:10px;
+  border:none;
+  font-size:16px;
+}
+
+input{outline:none}
+
+button{
+  background:#ffd166;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+button:hover{opacity:.9}
+
+h3{
+  font-size:16px;
+  margin-top:20px;
+  text-align:center;
+}
+
+/* BACK BUTTON */
+.back-btn{
+  position:fixed;
+  top:20px;
+  left:20px;
+  padding:10px 18px;
+  background:linear-gradient(135deg,#ffd166,#f5b942);
+  color:#000;
+  text-decoration:none;
+  font-weight:bold;
+  border-radius:30px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.4);
+  transition:.3s;
+  z-index:999;
+  font-size:14px;
+}
+
+.back-btn:hover{
+  transform:translateY(-2px);
+}
+
+/* Mobile */
+@media(max-width:480px){
+  body{padding:15px}
+  .container{padding:20px}
+  input,button{font-size:15px;padding:12px}
+  .back-btn{top:15px;left:15px;font-size:13px}
+}
+</style>
+</head>
+
+<body>
+
+<a href="5 day.html" class="back-btn">BACK</a>
+
+<div class="container">
+<h2>Book Your Package</h2>
+
+<form onsubmit="sendWhatsApp();return false;">
+
+<input type="text" id="package" placeholder="five day tour" readonly>
+
+<!-- DAYS SELECT -->
+<select id="no_of_package" onchange="updateTour()" required>
+  <option value="">number of tour</option>
+  <option value="1">1 </option>
+  <option value="2">2 </option>
+  <option value="3">3 </option>
+  <option value="4">4 </option>
+</select>
+
+<input type="text" id="tourName" placeholder="Tour Destination" readonly>
+
+<input type="text" id="name" placeholder="Your Name" required>
+<input type="email" id="email" placeholder="Email" required>
+
+<input
+  type="tel"
+  id="whatsapp"
+  placeholder="+XXXXXXXXXXX your WhatsApp number"
+  required
+  inputmode="tel"
+  oninput="this.value=this.value.replace(/[^0-9+]/g,'')"
+>
+
+<h3>👇 When are you coming to Sri Lanka?</h3>
+<input type="date" id="date" required>
+
+<button type="submit">Submit Booking</button>
+</form>
+</div>
+
+<script>
+// get package from URL
+const params=new URLSearchParams(window.location.search);
+document.getElementById("package").value=params.get("package")||"";
+
+// map days to tour
+function getPackageName(no){
+  if(no==1)return "Galle Fort";
+  if(no==2)return "Bentota Beach";
+  if(no==3)return "Sigiriya Rock";
+  if(no==4)return "Ella & Tea Plantations";
+  return "";
+}
+
+// update tour field
+function updateTour(){
+  const days=document.getElementById("no_of_package").value;
+  document.getElementById("tourName").value=getPackageName(days);
+}
+
+function sendWhatsApp(){
+  const pkg=document.getElementById("package").value;
+  const days=document.getElementById("no_of_package").value;
+  const tour=document.getElementById("tourName").value;
+  const name=document.getElementById("name").value;
+  const email=document.getElementById("email").value;
+  const whatsapp=document.getElementById("whatsapp").value;
+  const date=document.getElementById("date").value;
+
+  const ownerNumber="94753565957";
+
+  const message=
+`📢 New Booking Request
+5️⃣ day tour
+📦 Package: ${pkg}
+🗺 Tour: ${tour}
+📅 number: ${days}
+
+👤 Name: ${name}
+📧 Email: ${email}
+📱 Customer WhatsApp: ${whatsapp}
+🛬 Arrival Date: ${date}`;
+
+  window.open(
+    "https://wa.me/"+ownerNumber+"?text="+encodeURIComponent(message),
+    "_blank"
+  );
+}
+</script>
+
+</body>
+</html>

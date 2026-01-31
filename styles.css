@@ -1,123 +1,434 @@
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+/* =====================
+   GOOGLE FONTS
+===================== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700&family=Anton&display=swap');
+
+/* =====================
+   RESET
+===================== */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
 }
 
-body {
-    background-color: #0d0d0d;
-    color: #ffffff;
+html{
+  -webkit-text-size-adjust:100%;
 }
 
-/* HERO SECTION */
-.hero {
-    min-height: 100vh;
-    background:
-        linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-        url('https://tse2.mm.bing.net/th/id/OIP.sA3lWV9PZ-nVldlq69VCnQHaEK?rs=1&pid=ImgDetMain&o=7&rm=3') center/cover no-repeat;
-    display: flex;
-    flex-direction: column;
+body{
+  font-family:'Poppins', sans-serif;
+  background:#0e0e0e;
+  color:#fff;
+  overflow-x:hidden;
 }
 
-/* NAVBAR */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 25px 8%;
+/* =====================
+   HERO BACKGROUND
+===================== */
+.hero{
+  position:relative;
+  min-height:100vh;
+  padding-bottom:160px;
+  overflow:hidden;
 }
 
-.logo {
-    font-size: 28px;
-    font-weight: bold;
-    color: #ffffff;
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("bg.jpg") center/cover no-repeat;
+  filter:brightness(1.15) contrast(1.08) saturate(1.15);
+  z-index:-2;
 }
 
-.logo span {
-    color: #f5c16c;
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.35);
+  z-index:-1;
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 30px;
+/* =====================
+   NAVBAR
+===================== */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 6%;
+  flex-wrap:wrap;
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: #cccccc;
-    font-size: 16px;
-    transition: color 0.3s;
+/* LOGO IMAGE */
+.wobble-logo{
+  width:190px;
+  opacity:0;
+  transform:scale(0.6) rotate(-12deg);
+  animation:logoOpen 1.4s cubic-bezier(.2,.8,.2,1) forwards;
 }
 
-.nav-links a:hover {
-    color: #f5c16c;
+/* LOGO TEXT */
+.logo{
+  font-size:35px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style:oblique;
+  font-weight:800;
+  letter-spacing:1.5px;
+
+  opacity:0;
+  animation:textReveal 1.2s ease forwards;
+  animation-delay:.3s;
 }
 
-.nav-btn {
-    text-decoration: none;
-    padding: 10px 22px;
-    background-color: #f5c16c;
-    color: #000;
-    border-radius: 25px;
-    font-weight: 600;
-    transition: background 0.3s;
+/* Briyon */
+.logo-main{
+  color:#ffffff;   /* purple */
+  text-shadow:
+    1px 1px 0 #ffffff,
+    4px 4px 0 #20858a,
+    3px 3px 8px rgba(0,0,0,.45);
 }
 
-.nav-btn:hover {
-    background-color: #e0ac55;
+/* Travels */
+.logo-sub{
+  color:#20858a;   /* white */
+  margin-left:6px;
+  text-shadow:
+    1px 1px 0 #20858a,
+    4px 4px 0 #ffffff,
+    3px 3px 8px rgba(0,0,0,.45);
+    }
+
+/* =====================
+   NAV LINKS
+===================== */
+.nav-links{
+  list-style:none;
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  justify-content:center;
 }
 
-/* HERO CONTENT */
-.hero-content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 8%;
-    max-width: 700px;
+.nav-links li{
+  opacity:0;
+  animation:navFade .9s ease forwards;
 }
 
-.hero-content h1 {
-    font-size: 56px;
-    line-height: 1.2;
-    margin-bottom: 20px;
+.nav-links li:nth-child(1){animation-delay:.6s;}
+.nav-links li:nth-child(2){animation-delay:.8s;}
+.nav-links li:nth-child(3){animation-delay:1s;}
+.nav-links li:nth-child(4){animation-delay:1.2s;}
+
+.nav-links a{
+  padding:8px 16px;
+  border-radius:30px;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1px;
+  color:#fff;
+  background:linear-gradient(135deg,#023c3f,#32ae95);
+  border:1.6px solid rgba(255,255,255,.4);
+  box-shadow:0 6px 16px rgba(0,0,0,.35);
+  transition:.3s;
 }
 
-.hero-content p {
-    font-size: 18px;
-    color: #dddddd;
-    margin-bottom: 35px;
+.nav-links a:hover{
+  background:#fbfbfb;
+  color:#000;
+  transform:translateY(-3px);
 }
 
-/* BUTTONS */
-.hero-buttons {
-    display: flex;
-    gap: 20px;
+/* =====================
+   HERO CONTENT
+===================== */
+.hero-content{
+  max-width:780px;
+  padding:90px 6% 0;
 }
 
-.btn-primary {
-    padding: 14px 30px;
-    background-color: #f5c16c;
-    color: #000;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
+/* 🔥 DISCOVER SRI LANKA WITH US */
+.hero-title{
+  font-family:'anton',sans-serif ;
+  font-size:43px;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  line-height:1.15;
+  margin-bottom:18px;
+
+  opacity:0;
+  transform:scale(0.85) translateY(40px);
+  animation:discoverReveal 1.4s ease-out forwards;
+  animation-delay:0.8s;
+
+  text-shadow:0 6px 25px rgba(0,0,0,.45);
 }
 
-.btn-secondary {
-    padding: 14px 30px;
-    border: 2px solid #f5c16c;
-    color: #f5c16c;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s;
+.hero-content p{
+  font-size:16px;
+  color:#ddd;
+  margin-bottom:30px;
+  opacity:0;
+  animation:fadeUp 1.2s ease forwards;
+  animation-delay:1.3s;
 }
 
-.btn-secondary:hover {
-    background-color: #f5c16c;
-    color: #000;
+/* =====================
+   HERO BUTTONS
+===================== */
+.hero-buttons{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+.hero-buttons a{
+  padding:14px 34px;
+  border-radius:50px;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:700;
+  text-transform:uppercase;
+  opacity:0;
+  animation:buttonPop .8s ease forwards;
+}
+
+.hero-buttons a:nth-child(1){animation-delay:1.6s;}
+.hero-buttons a:nth-child(2){animation-delay:1.8s;}
+
+.btn-primary{
+  background:linear-gradient(135deg,#023c3f,#32ae95);
+  color:#fff;
+}
+.btn-primary:hover{
+  background:#fbfbfb;
+  color:#000;
+  transform:translateY(-3px);
+}
+
+
+.btn-secondary{
+  border:2px solid #fff;
+  color:#fff;
+}
+
+/* =====================
+   SCROLL INDICATOR
+===================== */
+.scroll-indicator{
+  position:absolute;
+  bottom:25px;
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+
+  opacity:0;
+  animation:fadeUp 1s ease forwards;
+  animation-delay:2.2s;
+}
+
+
+.scroll-indicator span{
+  font-size:12px;
+  letter-spacing:2px;
+}
+
+.mouse{
+  width:26px;
+  height:44px;
+  border:2px solid #fff;
+  border-radius:20px;
+  margin:8px auto 0;
+}
+
+.wheel{
+  width:6px;
+  height:10px;
+  background:#fff;
+  border-radius:3px;
+  margin:6px auto;
+  animation:wheel 1.5s infinite;
+}
+
+/* =====================
+   SOCIAL ICONS
+===================== */
+.social-icons{
+  position:fixed;
+  right:18px;
+  bottom:22px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+  z-index:999;
+}
+
+.social-icons img{
+  width:35px;
+  height:35px;
+  border-radius:50%;
+  box-shadow:0 6px 20px rgba(0,0,0,.4);
+  transition:.3s;
+}
+
+.social-icons img:hover{
+  transform:scale(1.15);
+}
+
+/* =====================
+   PLACES SECTION
+===================== */
+.places-section{
+  background:#fff;
+  padding:80px 6%;
+  color:#000;
+}
+
+.section-title{
+  text-align:center;
+  font-size:32px;
+  margin-bottom:50px;
+}
+
+.place-card{
+  display:flex;
+  gap:35px;
+  margin-bottom:60px;
+  opacity:0;
+  transform:translateY(50px);
+  animation:fadeUp 1.2s ease forwards;
+  animation-timeline:view();
+  animation-range:entry 20% cover 40%;
+}
+
+.place-card img{
+  width:45%;
+  max-height:360px;
+  object-fit:cover;
+  border-radius:18px;
+  box-shadow:0 14px 35px rgba(0,0,0,.25);
+}
+
+.place-content{
+  width:55%;
+}
+
+.place-content h3{
+  font-size:24px;
+  margin-bottom:12px;
+}
+
+.place-content p{
+  font-size:15px;
+  line-height:1.7;
+}
+
+/* =====================
+   LOGO TEXT – BRIYON TRAVELS
+===================== */
+.logo-text{
+  font-family:'Anton', sans-serif;
+  font-size:50px;
+  letter-spacing:1px;
+}
+
+.logo-text .briyon{
+  color:#8c06a0;
+}
+
+.logo-text .travels{
+  color:#000;
+  margin-left:-12px;
+  opacity:.9;
+}
+
+.logo-text span{
+  -webkit-text-stroke:0.8px #fff;
+}
+
+/* =====================
+   KEYFRAMES
+===================== */
+@keyframes discoverReveal{
+  0%{opacity:0;transform:scale(.85) translateY(40px);letter-spacing:6px;}
+  60%{opacity:1;transform:scale(1.05) translateY(0);}
+  100%{opacity:1;transform:scale(1) translateY(0);}
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px) scale(.96);}
+  to{opacity:1;transform:translateY(0) scale(1);}
+}
+
+@keyframes navFade{
+  from{opacity:0;transform:translateY(-15px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes buttonPop{
+  from{opacity:0;transform:scale(.7);}
+  to{opacity:1;transform:scale(1);}
+}
+
+@keyframes logoReveal{
+  from{opacity:0;transform:scale(.6) rotate(-6deg);}
+  to{opacity:1;transform:scale(1) rotate(0);}
+}
+
+@keyframes textReveal{
+  from{opacity:0;transform:translateY(-20px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes wheel{
+  from{opacity:1;transform:translateY(0);}
+  to{opacity:0;transform:translateY(14px);}
+}
+@keyframes logoOpen{
+  0%{
+    opacity:0;
+    transform:scale(0.6) rotate(-12deg);
+  }
+  60%{
+    opacity:1;
+    transform:scale(1.1) rotate(3deg);
+  }
+  100%{
+    opacity:1;
+    transform:scale(1) rotate(0deg);
+  }
+}
+
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media(max-width:900px){
+  .place-card{flex-direction:column;}
+  .place-card img,.place-content{width:100%;}
+}
+
+@media(max-width:768px){
+  .navbar{flex-direction:column;gap:14px;text-align:center;}
+  .hero-content{text-align:center;padding-top:70px;}
+  .hero-title{font-size:42px;letter-spacing:2.5px;}
+  .hero-buttons a{width:100%;}
+}
+
+@media(max-width:480px){
+  .hero-title{font-size:34px;letter-spacing:2px;}
+  .section-title{font-size:24px;}
+  .place-content h3{font-size:20px;}
+  .place-content p{font-size:14px;}
+}
+@media(max-width:768px){
+  .scroll-indicator{
+    bottom:18px;   /* mobile eke podi adjust */
+  }
 }
